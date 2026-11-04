@@ -1,0 +1,6 @@
+{
+  "name": "tareas",
+  "owner": { "name": "manuelfp88" },
+  "description": "tareas: cuántas tareas en segundo plano tiene activas Claude Code, en el pie del cuadro de escribir.",
+  "plugins": [{ "name": "tareas", "source": "./" }]
+}

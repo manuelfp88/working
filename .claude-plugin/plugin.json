@@ -1,0 +1,10 @@
+{
+  "name": "tareas",
+  "version": "0.1.0",
+  "description": "Muestra en el pie del cuadro de escribir cuántas tareas en segundo plano hay activas; al pulsarlo, la lista.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "manuelfp88"
+  },
+  "license": "MIT"
+}
