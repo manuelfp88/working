@@ -1,7 +1,7 @@
 {
-  "name": "tareas",
-  "version": "0.1.0",
-  "description": "Muestra en el pie del cuadro de escribir cuántas tareas en segundo plano hay activas; al pulsarlo, la lista.",
+  "name": "working",
+  "version": "0.2.0",
+  "description": "Muestra en el pie cuántos chats están trabajando ahora mismo, sin contar los que esperan tu respuesta; al pulsarlo, sus títulos.",
   "types": "./types/index.d.ts",
   "author": {
     "name": "manuelfp88"

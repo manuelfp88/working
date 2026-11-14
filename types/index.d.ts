@@ -1,7 +1,7 @@
-export type Task = { id: string; type: string; description: string }
+export type Chat = { id: string; isBackground: boolean }
 
 declare module 'claude-code' {
   interface PluginState {
-    tareas: { agents: Shaped<Task[]>; others: Shaped<Task[]> }
+    working: { working: Shaped<Chat[]>; background: boolean }
   }
 }

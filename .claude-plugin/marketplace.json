@@ -1,6 +1,13 @@
 {
-  "name": "tareas",
-  "owner": { "name": "manuelfp88" },
-  "description": "tareas: cuántas tareas en segundo plano tiene activas Claude Code, en el pie del cuadro de escribir.",
-  "plugins": [{ "name": "tareas", "source": "./" }]
+  "name": "working",
+  "owner": {
+    "name": "manuelfp88"
+  },
+  "description": "working: cuántos chats de Claude Code están trabajando ahora mismo, en el pie del cuadro de escribir.",
+  "plugins": [
+    {
+      "name": "working",
+      "source": "./"
+    }
+  ]
 }
