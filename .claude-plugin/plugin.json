@@ -1,6 +1,6 @@
 {
   "name": "working",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Muestra en el pie cuántos chats están trabajando ahora mismo, sin contar los que esperan tu respuesta; al pulsarlo, sus títulos.",
   "types": "./types/index.d.ts",
   "author": {

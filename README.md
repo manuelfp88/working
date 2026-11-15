@@ -3,7 +3,7 @@
 Muestra en el pie del cuadro de escribir de Claude Code cuántos chats están trabajando ahora mismo, por ejemplo `🔄 3`. El pie no se mueve al hacer scroll, así que lo ves aunque estés leyendo más arriba o con la barra lateral cerrada.
 
 - Cuenta todos los chats que están pensando, también los laterales y el tuyo.
-- También cuenta los que terminaron su turno pero dejaron trabajo en segundo plano (un comando, un subagente, un workflow).
+- También cuenta los que terminaron su turno pero dejaron trabajo en segundo plano (un comando, un subagente, un workflow), durante una hora como mucho sin un turno nuevo, por si ese trabajo se ha quedado colgado.
 - No cuenta los que esperan tu permiso o tu respuesta, si tienes instalado [pendientes](https://github.com/manuelfp88/pendientes): esos salen allí.
 - A 0 no se muestra.
 - Al pulsarlo, un aviso con los chats: `🔄` pensando, `⏳` en segundo plano, `💬` chat lateral.

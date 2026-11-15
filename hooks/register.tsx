@@ -52,6 +52,10 @@ const working = atom({ plugin: 'working', key: 'working' } as const, [], { shape
 // subagente, un workflow): la sesión sigue en marcha aunque el turno haya terminado.
 // Va en el estado de la sesión, que sobrevive a /reload-plugins.
 const background = atom({ plugin: 'working', key: 'background' } as const, false)
+// Cuándo dijo Claude Code por última vez que quedaba trabajo en segundo plano. Pasada una hora
+// sin otro turno, se da por colgado y deja de contar.
+const backgroundSince = atom({ plugin: 'working', key: 'backgroundSince' } as const, 0)
+const FONDO_MAX = 60 * 60 * 1000
 
 const mark = async ($: EngineInterface, isWorking: boolean) => {
   const text = isWorking ? `${await $.clock.now()}${(await read($, background)) ? ' fondo' : ''}` : ''
@@ -109,7 +113,14 @@ export const register: Register = on => {
     // Una recarga no borra la marca: si había trabajo en segundo plano, sigue contando.
     const tick = async () => {
       // Mientras haya trabajo en segundo plano, la marca se renueva para que no caduque.
-      if (await read($, background)) await mark($, true)
+      if (await read($, background)) {
+        if ((await $.clock.now()) - (await read($, backgroundSince)) < FONDO_MAX) {
+          await mark($, true)
+        } else {
+          await update($, background, () => false)
+          await mark($, false)
+        }
+      }
       await poll($)
     }
     await tick()
@@ -141,6 +152,10 @@ export const register: Register = on => {
   on('classic.Stop', async ($, e, next) => {
     const isBusy = (e.background_tasks ?? []).length > 0
     await update($, background, () => isBusy)
+    if (isBusy) {
+      const now = await $.clock.now()
+      await update($, backgroundSince, () => now)
+    }
     await mark($, isBusy)
     return next(e)
   })
